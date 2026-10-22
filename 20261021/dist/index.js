@@ -25,6 +25,7 @@ O 'private' NÃO permite que o atributo ou método seja acessado e modificado de
 Para poder fazer isso, precisamos chamar os métodos da classe.
 */
 Object.defineProperty(exports, "__esModule", { value: true });
+const Dog_1 = require("./Dog");
 const Personagem_1 = require("./Personagem");
 // EXERCÍCIOS
 // Criem uma classe Personagem que tenha:
@@ -33,6 +34,19 @@ const Personagem_1 = require("./Personagem");
 // crie um método que mostra a vida (exemplo: mostrarVida())
 // crie um método que modifica a vida (exemplo: mudarVida(vida:number))
 const char = new Personagem_1.Personagem("Laura", 100, 15000);
-console.log(char.getVida());
-char.setVida(112);
-console.log(char.getVida());
+/* console.log(char.getVida())
+char.setVida(112)
+console.log(char.getVida()) */
+const dog1 = new Dog_1.Dog("Zac", 0.66, "Pug");
+const dog2 = new Dog_1.Dog("Alice", 5, "SRD");
+const dog3 = new Dog_1.Dog("Flor", 8, "Golden");
+console.log(`Estes são os cães que eu criei
+    ${dog1.getNome()}, Idade: ${dog1.getVida()}, Raça: ${dog1.getRaca()}
+    ${dog2.getNome()}, idade: ${dog2.getVida()}, Raça: ${dog2.getRaca()}
+    ${dog3.getNome()}, idade: ${dog3.getVida()}, Raça: ${dog3.getRaca()}`);
+console.log(`\nAgora vou alterar a raça => ${dog3.getNome()}`);
+dog3.setRaca("Golden Retriever");
+console.log(`\nRaça certa: ${dog3.getRaca()}`);
+console.log(`\nE a raça da ${dog2.getNome()}:`);
+dog2.setRaca("Vira-lata");
+console.log(`\nNova Raça: ${dog2.getRaca()}`);

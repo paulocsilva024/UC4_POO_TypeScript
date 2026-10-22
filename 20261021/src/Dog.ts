@@ -21,6 +21,12 @@ export class Dog {
         this.vida = novaVida
         if(this.vida < 0){this.vida = 0}
     }
+    public getRaca():string{
+        return this.breed
+    }
+    public setRaca(newBreed):void{
+        this.breed = newBreed
+    }
     public morder(qualquerCoisa:string):void {
         console.log(`O cachorro mordeu o(a) ${qualquerCoisa}`)
     }

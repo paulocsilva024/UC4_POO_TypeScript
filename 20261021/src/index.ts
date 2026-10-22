@@ -37,8 +37,23 @@ import { Personagem } from "./Personagem";
 
 const char:Personagem = new Personagem ("Laura", 100, 15000)
 
-console.log(char.getVida())
+/* console.log(char.getVida())
 char.setVida(112)
-console.log(char.getVida())
+console.log(char.getVida()) */
 
-const dog1:Dog = new Dog ("Zac", )
+const dog1:Dog = new Dog ("Zac", 0.66, "Pug")
+const dog2:Dog = new Dog ("Alice", 5, "SRD")
+const dog3:Dog = new Dog ("Flor", 8, "Golden")
+
+console.log(`Estes são os cães que eu criei
+    ${dog1.getNome()}, Idade: ${dog1.getVida()}, Raça: ${dog1.getRaca()}
+    ${dog2.getNome()}, idade: ${dog2.getVida()}, Raça: ${dog2.getRaca()}
+    ${dog3.getNome()}, idade: ${dog3.getVida()}, Raça: ${dog3.getRaca()}`
+)
+console.log(`\nAgora vou alterar a raça => ${dog3.getNome()}`)
+dog3.setRaca("Golden Retriever")
+console.log(`\nRaça certa: ${dog3.getRaca()}`)
+
+console.log(`\nE a raça da ${dog2.getNome()} também...`)
+dog2.setRaca("Vira-lata")
+console.log(`\nPode ser chamada de ${dog2.getRaca()}`)
