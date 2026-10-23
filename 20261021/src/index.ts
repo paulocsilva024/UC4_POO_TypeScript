@@ -22,6 +22,8 @@ No index: -> pokemon.vida = -999
 
 O 'private' NÃO permite que o atributo ou método seja acessado e modificado de qualquer jeito.
 Para poder fazer isso, precisamos chamar os métodos da classe.
+
+o 'protected' permite que, tanto a classe pai quanto as classes filhas, possam acessar os atributos diretamente. O restante precisa usar 'getAtributo' ou 'setAtributo'
 */
 
 import { Dog } from "./Dog";
