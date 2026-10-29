@@ -13,7 +13,7 @@ class Animal {
         console.log(`${this.nome} está se movendo...`);
     }
     comer() {
-        console.log(`${this.nome} está se comendo...`);
+        console.log(`${this.nome} está comendo...`);
     }
 }
 exports.Animal = Animal;
