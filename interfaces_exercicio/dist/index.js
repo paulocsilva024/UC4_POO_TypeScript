@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const Desenvolvedor_1 = require("./Desenvolvedor");
+const Gerente_1 = require("./Gerente");
+const LiderTecnico_1 = require("./LiderTecnico");
+const dev = new Desenvolvedor_1.Desenvolvedor("Paulo");
+const ger = new Gerente_1.Gerente("Miriam");
+const head = new LiderTecnico_1.LiderTecnico("Leo");
+dev.trabalhar();
+dev.programar();
+console.log(`\n============================\n`);
+ger.trabalhar();
+ger.gerenciar();
+console.log(`\n============================\n`);
+head.trabalhar();
+head.programar();
+head.gerenciar();
