@@ -1,5 +1,5 @@
 // Em typescript, as variáveis e constantes
-//Para transpilar => npx tsc nomeDoArquivo.ts
+// Para transpilar => npx tsc nomeDoArquivo.ts
 
 let meuNome:String = "Paulo"
 let minhaIdade:number = 31
