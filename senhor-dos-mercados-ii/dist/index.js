@@ -37,29 +37,52 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // dentro de um objeto chamado 'rl' q terá todos os atributos e métodos da biblioteca
 const rl = __importStar(require("readline-sync"));
 const Personagem_1 = require("./Personagem");
-function exibirStatus() {
-    return exibirStatus();
+function exibirStatus(fulano) {
+    return fulano.exibirStatus();
 }
+const per1 = new Personagem_1.Personagem("Seu Zé", 200, 30, 50);
+const per2 = new Personagem_1.Personagem("Fredo", 80, 30, 50);
+const per3 = new Personagem_1.Personagem("Samuel", 80, 30, 50);
+const per4 = new Personagem_1.Personagem("Diegolas", 80, 30, 50);
 // Menu de exemploa
 // const menu:number = rl.questionInt("Escolha: ")
 let menu = true;
 while (menu) {
-    console.log("=ATRIBUTOS-DO-MERCADINHO=\n1 - mostrar atributos \n2 - Sair");
+    console.clear();
+    console.log(`
+=== A RESISTÊNCIA DO MERCADINHO ===
+Escolha um para ver seus atributos...
+1 - ${per1.nome}
+2 - ${per2.nome}
+3 - ${per3.nome}
+4 - ${per4.nome}
+5 - Sair`);
     const acao = rl.questionInt("Escolha uma acao: ");
     switch (acao) {
         case 1:
-            exibirStatus();
+            exibirStatus(per1);
+            rl.question();
             break;
         case 2:
+            exibirStatus(per2);
+            rl.question();
+            break;
+        case 3:
+            exibirStatus(per3);
+            rl.question();
+            break;
+        case 4:
+            exibirStatus(per4);
+            rl.question();
+            break;
+        case 5:
             console.log("Saindo... ");
             menu = false;
             break;
         default:
-            console.log("Voceh escolheu uma acao invalida");
+            console.log("Digite uma opção do menu.");
             break;
     }
 }
-const seuZe = new Personagem_1.Personagem("Seu Zé", 200, 30, 50);
-const fredo = new Personagem_1.Personagem("Fredo", 80, 30, 50);
-const samuel = new Personagem_1.Personagem("Samuel", 80, 30, 50);
-const diego = new Personagem_1.Personagem("Diegolas", 80, 30, 50);
+per1.receberDano(99);
+per1.curar(-200);
