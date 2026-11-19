@@ -37,13 +37,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // dentro de um objeto chamado 'rl' q terá todos os atributos e métodos da biblioteca
 const rl = __importStar(require("readline-sync"));
 const Personagem_1 = require("./Personagem");
+const Guerreiro_1 = require("./Guerreiro");
+const Arqueiro_1 = require("./Arqueiro");
+const Guardiao_1 = require("./Guardiao");
 function exibirStatus(fulano) {
     return fulano.exibirStatus();
 }
-const per1 = new Personagem_1.Personagem("Seu Zé", 200, 30, 50);
-const per2 = new Personagem_1.Personagem("Fredo", 80, 30, 50);
-const per3 = new Personagem_1.Personagem("Samuel", 80, 30, 50);
-const per4 = new Personagem_1.Personagem("Diegolas", 80, 30, 50);
+const per1 = new Guardiao_1.Guardiao("Seu Zé", 200, 30, 2, 50, 100);
+const per2 = new Personagem_1.Personagem("Fredo", 80, 30, 1, 50);
+const per3 = new Arqueiro_1.Arqueiro("Samuel", 80, 30, 3, 50, 5);
+const per4 = new Guerreiro_1.Guerreiro("Diegolas", 80, 50, 2, 50, 100);
+const atacado = new Personagem_1.Personagem("Atacado", 100, 10, 2, 20);
 // Menu de exemploa
 // const menu:number = rl.questionInt("Escolha: ")
 let menu = true;
@@ -56,7 +60,8 @@ Escolha um para ver seus atributos...
 2 - ${per2.nome}
 3 - ${per3.nome}
 4 - ${per4.nome}
-5 - Sair`);
+5 - Informar Acao
+6 - Sair`);
     const acao = rl.questionInt("Escolha uma acao: ");
     switch (acao) {
         case 1:
@@ -76,13 +81,17 @@ Escolha um para ver seus atributos...
             rl.question();
             break;
         case 5:
+            per4.atacar(per1);
+            menu = false;
+            break;
+        case 6:
             console.log("Saindo... ");
             menu = false;
             break;
         default:
-            console.log("Digite uma opção do menu.");
+            console.log("Digite uma opcao do menu.");
             break;
     }
 }
-per1.receberDano(99);
-per1.curar(-200);
+//per1.receberDano(99)
+//per1.curar(-200)

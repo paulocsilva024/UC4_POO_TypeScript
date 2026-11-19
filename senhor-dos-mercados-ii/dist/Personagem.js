@@ -6,20 +6,27 @@ class Personagem {
     vida;
     vidaMaxima = 100;
     ataque;
+    alcance;
     defesa;
     vivoh = true;
-    constructor(nome, vida, ataque, defesa) {
+    constructor(nome, vida, ataque, alcance, defesa) {
         this.nome = nome;
         this.vida = vida;
         this.ataque = ataque;
+        this.alcance = alcance;
         this.defesa = defesa;
         this.verificarVida(vida);
     }
     exibirStatus() {
+        const porcentagem = this.vida / this.vidaMaxima;
+        const bloco = Math.round(porcentagem * 20);
+        const HP = "█".repeat(bloco) + "░".repeat(20 - bloco);
         console.log(`
             Status de ${this.nome}
-            Vida: ${this.vida}
+            Vida: ${this.vida}/${this.vidaMaxima}
+            ${HP}
             Ataque: ${this.ataque}
+            Alcance: ${this.alcance}
             Defesa: ${this.defesa}`);
     }
     verificarVida(vida) {
@@ -44,22 +51,13 @@ class Personagem {
         console.log(`${this.nome} foi atacado e recebeu dano de ${danoPos}
             Vida atual: ${this.getVida()}/${this.getMaxVida()}`);
     }
-    curar(valor) {
-        if (this.estaVivo()) {
-            let danoPos = Math.abs(valor);
-            this.vida += danoPos;
-            if (this.vida > this.vidaMaxima)
-                this.vida = this.vidaMaxima;
-            console.log(`${this.nome} tomou poção de cura
-                Vida atual: ${this.getVida()}/${this.getMaxVida()}`);
-        }
-        else {
-            console.log(`${this.nome} morreu!`);
-        }
-    }
     estaVivo() {
         this.vida <= 0 ? this.vivoh = false : this.vivoh = true;
         return this.vivoh;
+    }
+    atacar(atacado) {
+        atacado.receberDano(this.ataque);
+        //atacado.vida -= this.ataque
     }
 }
 exports.Personagem = Personagem;
