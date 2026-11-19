@@ -4,11 +4,11 @@ import { IHabilidadeEspecial } from "./IHabilidadeEspecial"
 import { IEquipavel } from "./IEquipavel"
 import { Armadura } from "./Armadura"
 
-export class Guardiao extends Personagem implements ICuravel, IHabilidadeEspecial, IEquipavel{
+export class Guardiao extends Personagem implements ICuravel, IHabilidadeEspecial{
     private superDef:number
 
-    constructor (nome:string, vida:number, ataque:number, alcance:number, defesa:number, defesa_superior:number) {
-        super(nome, vida, ataque, alcance, defesa)
+    constructor (funcao:string, nome:string, vida:number, ataque:number, alcance:number, defesa:number, defesa_superior:number) {
+        super(funcao, nome, vida, ataque, alcance, defesa)
         this.superDef = defesa_superior
         this.vida = this.vida
         this.defesa = this.defesa + this.superDef
@@ -39,8 +39,8 @@ export class Guardiao extends Personagem implements ICuravel, IHabilidadeEspecia
         this.superDef += 10
     }
 
-    equip(equip:Armadura): void {
-        console.log(`Agora ${this.nome} está com um equipamento.`)
-        this.defesa += equip.durabilidade
-    }
+    // equip(equip:Armadura): void {
+    //     console.log(`Agora ${this.nome} está com um equipamento.`)
+    //     this.defesa += equip.durabilidade
+    // }
 }

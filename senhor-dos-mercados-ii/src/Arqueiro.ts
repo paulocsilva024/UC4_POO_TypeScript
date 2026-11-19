@@ -4,8 +4,9 @@ import { IHabilidadeEspecial } from "./IHabilidadeEspecial"
 export class Arqueiro extends Personagem implements IHabilidadeEspecial {
     superPre:number
 
-    constructor (nome:string, vida:number, ataque:number,alcance:number, defesa:number, mira_superior:number) {
-        super(nome, vida, ataque, alcance, defesa)
+    constructor (funcao:string, nome:string, vida:number, ataque:number,alcance:number, defesa:number, mira_superior:number) {
+        super(funcao, nome, vida, ataque, alcance, defesa)
+        this.funcao = funcao
         this.superPre = mira_superior
         this.alcance = this.alcance + this.superPre
         this.vida = this.vida + this.defesa

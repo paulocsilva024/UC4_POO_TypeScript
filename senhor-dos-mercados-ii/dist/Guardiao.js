@@ -4,10 +4,10 @@ exports.Guardiao = void 0;
 const Personagem_1 = require("./Personagem");
 class Guardiao extends Personagem_1.Personagem {
     superDef;
-    constructor(nome, vida, ataque, alcance, defesa, defesa_superior) {
-        super(nome, vida, ataque, alcance, defesa);
+    constructor(funcao, nome, vida, ataque, alcance, defesa, defesa_superior) {
+        super(funcao, nome, vida, ataque, alcance, defesa);
         this.superDef = defesa_superior;
-        this.vida = this.vida + this.defesa;
+        this.vida = this.vida;
         this.defesa = this.defesa + this.superDef;
     }
     usarEscudo() {

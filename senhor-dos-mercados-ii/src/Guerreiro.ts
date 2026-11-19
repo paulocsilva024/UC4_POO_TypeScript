@@ -6,8 +6,9 @@ import { Armadura } from "./Armadura"
 export class Guerreiro extends Personagem implements IHabilidadeEspecial, IEquipavel{
     private superAtk:number = 30//aumenta o ataque em 30 pontos
 
-    constructor (nome:string, vida:number, ataque:number, alcance:number, defesa:number, ataque_superior:number){
-        super(nome, vida, ataque, alcance, defesa)
+    constructor (funcao:string, nome:string, vida:number, ataque:number, alcance:number, defesa:number, ataque_superior:number){
+        super(funcao, nome, vida, ataque, alcance, defesa)
+        this.funcao = funcao
         this.superAtk = ataque_superior
         this.ataque = this.ataque + this.superAtk
         this.vida = this.vida + this.defesa

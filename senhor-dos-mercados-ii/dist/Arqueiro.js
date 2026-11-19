@@ -4,11 +4,12 @@ exports.Arqueiro = void 0;
 const Personagem_1 = require("./Personagem");
 class Arqueiro extends Personagem_1.Personagem {
     superPre;
-    constructor(nome, vida, ataque, alcance, defesa, mira_superior) {
-        super(nome, vida, ataque, alcance, defesa);
+    constructor(funcao, nome, vida, ataque, alcance, defesa, mira_superior) {
+        super(funcao, nome, vida, ataque, alcance, defesa);
+        this.funcao = funcao;
         this.superPre = mira_superior;
         this.alcance = this.alcance + this.superPre;
-        this.vida = this.vida = this.defesa;
+        this.vida = this.vida + this.defesa;
     }
     atacar(per1) {
         per1.receberDano(this.ataque);

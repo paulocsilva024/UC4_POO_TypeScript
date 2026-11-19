@@ -2,12 +2,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Armadura = void 0;
 class Armadura {
+    nome;
     durabilidade;
-    tempo;
-    constructor(durabilidade, anos) {
-        this.durabilidade = durabilidade;
-        this.tempo = anos;
-        this.durabilidade = this.durabilidade - this.tempo;
+    tempo = 20;
+    constructor(nome, durabilidade = 200) {
+        this.nome = nome;
+        //this.durabilidade = durabilidade
+        //this.tempo = tempo
+        this.durabilidade = durabilidade - this.tempo;
     }
 }
 exports.Armadura = Armadura;
