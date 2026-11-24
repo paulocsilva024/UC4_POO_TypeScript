@@ -43,10 +43,59 @@ const Guardiao_1 = require("./Guardiao");
 function exibirStatus(fulano) {
     return fulano.exibirStatus();
 }
+function combate() {
+    console.log(`\nOs seus HEROIS!
+1 - ${per1.nome}
+2 - ${per2.nome}
+3 - ${per3.nome}
+4 - ${per4.nome}
+`);
+    const combatente = rl.questionInt("escolha um desses lendarios herois para lutar: ");
+    let luta = true;
+    while (luta) {
+        console.clear();
+        console.log(`
+=== A RESISTENCIA DO MERCADINHO ===
+       Escolha uma opcao . . . \n
+1 - ATACAR
+2 - TROCAR DE HEROI
+3 - FUGIR`);
+        const opcao = rl.questionInt("Escolha uma acao: ");
+        if (opcao == 1) {
+            const pegou = Math.floor(Math.random() * 5);
+            if (pegou == 1) {
+                console.log("Voceh errou o ataque e seu inimigo aproveita para atacar!");
+                receberDano();
+            }
+            else {
+                atacar();
+                console.log("voceh ataca feroz mente!");
+                receberDano();
+            }
+        }
+        else if (opcao == 2) {
+            console.log(`\nOs seus HEROIS!
+1 - ${per1.nome}
+2 - ${per2.nome}
+3 - ${per3.nome}
+4 - ${per4.nome}
+`);
+            const combatente = rl.questionInt("escolha um novo lendarios herois para lutar: ");
+            receberDano();
+        }
+        else if (opcao == 3) {
+            console.log("Fugindo da batalha ...");
+            luta = false;
+        }
+        else {
+            console.log("este movimento ainda nao foi dominado pelo nosso heroi!");
+        }
+    }
+}
 const per1 = new Guardiao_1.Guardiao("Dono do mercadinho", "Seu Zé", 200, 30, 2, 50, 100);
 const per2 = new Personagem_1.Personagem("Funcionario do mercadinho", "Fredo", 80, 30, 1, 50);
 const per3 = new Arqueiro_1.Arqueiro("Funcionario do mercadinho", "Samuel", 80, 30, 3, 50, 5);
-const per4 = new Guerreiro_1.Guerreiro("Funcionario do mercadinho", "Diegolas", 80, 70, 2, 50, 100);
+const per4 = new Guerreiro_1.Guerreiro("Funcionario do mercadinho", "Diegolas", 80, 70, 2, 50);
 // const armor1:Armadura = new Armadura("Minha Armadura")
 const mercadinho = [
     per1,
@@ -54,7 +103,7 @@ const mercadinho = [
     per3,
     per4
 ];
-// Menu de exemploa
+// Menu de exemplo
 // const menu:number = rl.questionInt("Escolha: ")
 // INIMIGOS
 const exercito = [
@@ -70,7 +119,7 @@ while (menu) {
     console.clear();
     console.log(`
 === A RESISTÊNCIA DO MERCADINHO ===
-       Escolha uma opicao . . . \n
+       Escolha uma opção . . . \n
 1 - Ver Sociedade
 2 - Escolher herói
 3 - Enfrentar inimigo
@@ -79,16 +128,12 @@ while (menu) {
     const acao = rl.questionInt("Escolha uma acao: ");
     switch (acao) {
         case 1:
-            console.log(`\nOs seus HEROIS!
-Funcao:${per1.funcao} do ${per1.nome}\n
-${per1.exibirStatus}\n
-Funcao:${per2.funcao} do ${per2.nome}\n
-${per2.exibirStatus}\n
-Funcao:${per3.funcao} do ${per3.nome}\n
-${per3.exibirStatus}\n
-Funcao:${per1.funcao} do ${per4.nome}\n
-${per4.exibirStatus}\n
-`);
+            console.log(`\nOs HEROIS da Sociedade!\n
+${per1.nome} - ${per1.funcao}
+${per2.nome} - ${per2.funcao}
+${per3.nome} - ${per3.funcao}
+${per4.nome} - ${per4.funcao}`);
+            rl.question();
             break;
         case 2:
             console.log(`\nOs seus HEROIS!
@@ -96,11 +141,12 @@ ${per4.exibirStatus}\n
 2 - ${per2.nome}
 3 - ${per3.nome}
 4 - ${per4.nome}
-5 - Sair`);
-            const escolhido = rl.questionInt("escolha um desses lendarios herois: ");
+`);
+            const escolhido = rl.questionInt("escolha um desses lendarios herois para ver o estatus: ");
             if (escolhido == 1) {
                 console.log(`Heroi escolhido ${per1.nome}!`);
                 exibirStatus(per1);
+                combate;
                 rl.question();
             }
             else if (escolhido == 2) {
@@ -118,10 +164,6 @@ ${per4.exibirStatus}\n
                 exibirStatus(per4);
                 rl.question();
             }
-            else if (escolhido == 5) {
-                console.log("Saindo... ");
-                menu = false;
-            }
             else {
                 console.log("Este heroi ainda nao estah disponivel, escolha outro HEROI!");
             }
@@ -134,41 +176,43 @@ ${per4.exibirStatus}\n
 4 - ${exercito[3].nome}
 5 - ${exercito[4].nome}
 6 - ${exercito[5].nome}
-7 - Sair`);
-            const inimigo = rl.questionInt("escolha um desses lendarios herois: ");
+`);
+            const inimigo = rl.questionInt("Qual desses inimigos voceh vai ousar desafiar: ");
             if (inimigo == 1) {
-                console.log(`Inimigo a tentar te desafiar ${exercito[0].nome}!`);
+                console.log(`O inimigo ${exercito[0].nome} tentar te desafiar !`);
                 exibirStatus(exercito[0]);
+                combate();
                 rl.question();
             }
             else if (inimigo == 2) {
-                console.log(`Inimigo a tentar te desafiar ${exercito[1].nome}!`);
+                console.log(`O inimigo ${exercito[1].nome} tentar te desafiar !`);
                 exibirStatus(exercito[1]);
+                combate();
                 rl.question();
             }
             else if (inimigo == 3) {
-                console.log(`Inimigo a tentar te desafiar ${exercito[2].nome}!`);
+                console.log(`O inimigo ${exercito[2].nome} tentar te desafiar !`);
                 exibirStatus(exercito[2]);
+                combate();
                 rl.question();
             }
             else if (inimigo == 4) {
                 console.log(`O grande ${exercito[3].nome} estah a te desafiar!`);
                 exibirStatus(exercito[3]);
+                combate();
                 rl.question();
             }
             else if (inimigo == 5) {
                 console.log(`O grande ${exercito[4].nome} estah a te desafiar!`);
                 exibirStatus(exercito[4]);
+                combate();
                 rl.question();
             }
             else if (inimigo == 6) {
                 console.log(`O grande ${exercito[5].nome} estah a te desafiar!`);
                 exibirStatus(exercito[5]);
+                combate();
                 rl.question();
-            }
-            else if (inimigo == 7) {
-                console.log("Saindo... ");
-                menu = false;
             }
             else {
                 console.log("Este inimigo ainda nao estah disponivel, escolha outro inimigo!");
@@ -191,13 +235,12 @@ ${per4.exibirStatus}\n
             console.log(`Derrotados: ${derrotados}`);
             console.log(`\nINIMIGOS MORTOS: 
 Quantidade de ${exercito[0].nome} derrotados:
-Quantidade de ${exercito[1].nome} derrotados: 
+Quantidade de ${exercito[1].nome} derrotados:
 Quantidade de ${exercito[2].nome} derrotados: 
 Quantidade de ${exercito[3].nome} derrotados: 
 Quantidade de ${exercito[4].nome} derrotados:
 Quantidade de ${exercito[5].nome} derrotados: 
-Quantidade total de inimigos derrotados:${exercito}
-            
+Quantidade total de inimigos derrotados:${derrotados}    
 `);
             rl.question();
             break;
@@ -213,3 +256,9 @@ Quantidade total de inimigos derrotados:${exercito}
 console.log(Math.ceil(1.75));
 console.log(Math.round(1.75));
 console.log(Math.floor(1.75));
+function atacar() {
+    throw new Error("Function not implemented.");
+}
+function receberDano() {
+    throw new Error("Function not implemented.");
+}

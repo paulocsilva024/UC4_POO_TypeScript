@@ -12,9 +12,9 @@ export class Arqueiro extends Personagem implements IHabilidadeEspecial {
         this.vida = this.vida + this.defesa
     }
 
-    atacar(per1:Personagem){
-        per1.receberDano(this.ataque)
-        console.log(`${this.nome} ataca o seu inimigo a uma distancia de ${this.alcance}`)
+    atacar(atacado:Personagem){
+        atacado.receberDano(this.ataque)
+        console.log(`${this.nome} ataca o seu inimigo a uma distância de ${this.alcance}m.`)
     }
 
     HabilidadeEspecial(): void {

@@ -3,12 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Guerreiro = void 0;
 const Personagem_1 = require("./Personagem");
 class Guerreiro extends Personagem_1.Personagem {
-    superAtk = 30; //aumenta o ataque em 30 pontos
-    constructor(funcao, nome, vida, ataque, alcance, defesa, ataque_superior) {
+    superAtk = 8; //aumenta o ataque em 30 pontos
+    constructor(funcao, nome, vida, ataque, alcance, defesa) {
         super(funcao, nome, vida, ataque, alcance, defesa);
         this.funcao = funcao;
-        this.superAtk = ataque_superior;
-        this.ataque = this.ataque + this.superAtk;
+        this.ataque += this.superAtk;
         this.vida = this.vida + this.defesa;
     }
     atacar(atacado) {
@@ -20,7 +19,7 @@ class Guerreiro extends Personagem_1.Personagem {
         this.ataque += 40;
         this.superAtk += 20;
     }
-    equip() {
+    equipe() {
         console.log(`Agora ${this.nome} está com um equipamento.`);
     }
 }

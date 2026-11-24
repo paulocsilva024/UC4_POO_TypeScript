@@ -11,9 +11,9 @@ class Arqueiro extends Personagem_1.Personagem {
         this.alcance = this.alcance + this.superPre;
         this.vida = this.vida + this.defesa;
     }
-    atacar(per1) {
-        per1.receberDano(this.ataque);
-        console.log(`${this.nome} ataca o seu inimigo a uma distancia de ${this.alcance}`);
+    atacar(atacado) {
+        atacado.receberDano(this.ataque);
+        console.log(`${this.nome} ataca o seu inimigo a uma distância de ${this.alcance}m.`);
     }
     HabilidadeEspecial() {
         console.log(`${this.nome} usou sua abilidade especial INTEPRETACAO DO GAVIAO para aumentar sua forca`);

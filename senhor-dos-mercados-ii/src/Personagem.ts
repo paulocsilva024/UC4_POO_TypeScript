@@ -4,7 +4,7 @@ export class Personagem {
     protected vida:number
     protected vidaMaxima:number = 100
     protected ataque:number
-    protected alcance:number
+    public alcance:number
     protected defesa:number
 
     constructor(funcao:string, nome:string, vida:number, ataque:number, alcance:number, defesa:number) {
@@ -63,9 +63,11 @@ export class Personagem {
 
     atacar(atacado:Personagem, forca:number):void {
         if (!this.estaVivo() || !atacado.estaVivo()) return
-        const dano = Math.max(0, Math.floor(forca) - atacado.defesa)
+        const dano = Math.max(0, Math.floor(forca))
         
         console.log(`${this.nome} golpeou o alvo ${atacado.nome} e deu um dano de ${dano}!`)
     }
+
+    
 }
 

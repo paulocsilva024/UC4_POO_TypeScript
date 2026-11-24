@@ -13,8 +13,8 @@ class Guardiao extends Personagem_1.Personagem {
     usarEscudo() {
         console.log(`${this.nome} usou o escudo para se defender`);
     }
-    atacar(per1) {
-        per1.receberDano(this.ataque);
+    atacar(atacado) {
+        atacado.receberDano(this.ataque);
         console.log(`${this.nome} ataca o seu inimigo para se defender`);
     }
     curar(valor) {
@@ -34,6 +34,9 @@ class Guardiao extends Personagem_1.Personagem {
         console.log(`${this.nome} usou sua abilidade especial DEFESA DE DIAMANTE para aumentar sua defesa`);
         this.defesa += 20;
         this.superDef += 10;
+    }
+    equipe() {
+        return this.nome + "estah com o equipamento lendário O CORTADOR DE PIZZA ENFERRUJADO";
     }
 }
 exports.Guardiao = Guardiao;

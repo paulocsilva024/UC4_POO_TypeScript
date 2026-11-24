@@ -2,9 +2,8 @@ import { Personagem } from "./Personagem"
 import { ICuravel } from "./ICuravel"
 import { IHabilidadeEspecial } from "./IHabilidadeEspecial"
 import { IEquipavel } from "./IEquipavel"
-import { Armadura } from "./Armadura"
 
-export class Guardiao extends Personagem implements ICuravel, IHabilidadeEspecial{
+export class Guardiao extends Personagem implements ICuravel, IHabilidadeEspecial, IEquipavel{
     private superDef:number
 
     constructor (funcao:string, nome:string, vida:number, ataque:number, alcance:number, defesa:number, defesa_superior:number) {
@@ -13,13 +12,13 @@ export class Guardiao extends Personagem implements ICuravel, IHabilidadeEspecia
         this.vida = this.vida
         this.defesa = this.defesa + this.superDef
     }
-
+    
     usarEscudo():void{
         console.log(`${this.nome} usou o escudo para se defender`)
     }
 
-    atacar(per1:Personagem){
-        per1.receberDano(this.ataque)
+    atacar(atacado:Personagem){
+        atacado.receberDano(this.ataque)
         console.log(`${this.nome} ataca o seu inimigo para se defender`)
     }
 
@@ -39,8 +38,9 @@ export class Guardiao extends Personagem implements ICuravel, IHabilidadeEspecia
         this.superDef += 10
     }
 
-    // equip(equip:Armadura): void {
-    //     console.log(`Agora ${this.nome} está com um equipamento.`)
-    //     this.defesa += equip.durabilidade
-    // }
+    equipe():string {
+        return this.nome + "estah com o equipamento lendário O CORTADOR DE PIZZA ENFERRUJADO"
+    }
+
+
 }

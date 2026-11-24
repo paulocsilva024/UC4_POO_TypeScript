@@ -1,3 +1,3 @@
 export interface IEquipavel {
-    equip():void
+    equipe():void
 }

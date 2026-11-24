@@ -59,7 +59,7 @@ class Personagem {
     atacar(atacado, forca) {
         if (!this.estaVivo() || !atacado.estaVivo())
             return;
-        const dano = Math.max(0, Math.floor(forca) - atacado.defesa);
+        const dano = Math.max(0, Math.floor(forca));
         console.log(`${this.nome} golpeou o alvo ${atacado.nome} e deu um dano de ${dano}!`);
     }
 }
